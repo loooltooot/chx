@@ -1,0 +1,36 @@
+$side_paddings: 18.23vw;
+$base-font-size: .94vw;
+
+:root {
+    --m-font-size: 1.5em;
+    --big-font-size: 3em;
+
+    --primary-color: #0B0B0B;
+    --focus-color: #FF00F5;
+    --on-primary-color: white;
+}
+
+* {
+    font-family: 'Crimson Text', serif;
+    font-size: $base-font-size;
+    color: var(--on-primary-color)
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#__next > :is(header, footer), section {
+    padding: 0 $side_paddings;
+}
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    font-family: 'UnifrakturCook', cursive;
+}
