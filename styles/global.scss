@@ -1,3 +1,5 @@
+@use 'header';
+
 $side_paddings: 18.23vw;
 $base-font-size: .94vw;
 
@@ -5,19 +7,33 @@ $base-font-size: .94vw;
     --m-font-size: 1.5em;
     --big-font-size: 3em;
 
+    --font-crimson-text: 'Crimson Text', serif;
+    --font-unifraktur-cook: 'UnifrakturCook', cursive;
+
     --primary-color: #0B0B0B;
     --focus-color: #FF00F5;
     --on-primary-color: white;
 }
 
 * {
-    font-family: 'Crimson Text', serif;
+    font-family: var(--font-crimson-text);
     font-size: $base-font-size;
-    color: var(--on-primary-color)
+    color: var(--on-primary-color);
+}
+
+::-moz-selection {
+    background: var(--focus-color);
+}
+
+::selection {
+    background: var(--focus-color);
 }
 
 body {
     background-color: var(--primary-color);
+    background-image: url('../public/img/back.png');
+    background-position: right center;
+    background-repeat: repeat-y;
 }
 
 .flex-row {
@@ -32,5 +48,25 @@ body {
 h1, h2, h3 {
     padding: 0;
     margin: 0;
-    font-family: 'UnifrakturCook', cursive;
+    font-family: var(--font-unifraktur-cook);
+}
+
+h1 {
+    font-size: 3.56em;
+}
+
+h2 {
+    font-size: var(--big-font-size);
+}
+
+h3 {
+    font-size: var(--m-font-size);
+}
+
+.next-error-h1 {
+    font-size: var(--big-font-size) !important;
+
+    & ~ div h2 {
+        font-size: var(--m-font-size) !important;
+    }
 }

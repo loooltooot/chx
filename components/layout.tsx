@@ -4,12 +4,13 @@ import Header from "./header";
 
 interface ILayout {
     children: React.ReactNode
+    activeCategoryId: number
 }
 
-export default function Layout({children}: ILayout) {
+export default function Layout({children, activeCategoryId}: ILayout) {
     return (
         <>
-            <Header />
+            <Header activeCategoryId={activeCategoryId} />
             <main>
                 {children}
             </main>
