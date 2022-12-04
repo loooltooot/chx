@@ -1,0 +1,86 @@
+.article {
+    max-width: 47.24vw;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    padding-right: 1.82vw;
+
+    & > img {
+        width: 14.06vw;
+        height: 14.06vw;
+    }
+
+    header {
+        background-color: var(--on-primary-color);
+        border-bottom: .11vw var(--focus-color) solid;
+        padding-right: 1.82vw;
+        padding-top: .3vw;
+        padding-bottom: .3vw;
+        width: fit-content;
+
+        h3 {
+            color: var(--primary-color);
+        }
+    }
+
+    & > div :not(header h3, footer *) {
+        padding-left: 1.82vw;
+    }
+
+    &::before {
+        content: '';
+        border-bottom: .22vw var(--focus-color) solid;
+        width: 100%;
+        position: absolute;
+        bottom: -.2vw;
+        left: 0;
+        opacity: 0;
+    }
+
+    &:hover {
+        background-color: var(--on-primary-color);
+
+        header {
+            border: none;
+            background-color: var(--focus-color);
+        }
+
+        p {
+            margin-top: 1.08vw;
+        }
+
+        * {
+            color: var(--primary-color);
+        }
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &:hover .views::before {
+        content: url('../public/img/eyeDark.svg');
+    }
+
+    footer {
+        margin-top: 2.21vw;
+
+        & > div {
+            width: 7.6vw;
+            justify-content: space-between;
+            align-items: center;
+
+            & > span {
+                position: relative;
+
+                &::before {
+                    content: url('../public/img/eye.svg');
+                    width: 1.04vw;  
+                    position: absolute;
+                    top: -0.2vw;
+                    left: -1.24vw;
+                }
+            }
+        }
+    }
+}

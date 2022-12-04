@@ -10,10 +10,12 @@ interface ILayout {
 export default function Layout({children, activeCategoryId}: ILayout) {
     return (
         <>
-            <Header activeCategoryId={activeCategoryId} />
-            <main>
-                {children}
-            </main>
+            <div>
+                <Header activeCategoryId={activeCategoryId} />
+                <main>
+                    {children}
+                </main>
+            </div>
             <Footer />
         </>
     )

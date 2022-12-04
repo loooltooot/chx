@@ -1,0 +1,20 @@
+.karma {
+    display: flex;
+    width: fit-content;
+    gap: .26vw;
+    align-items: center;
+
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        img {
+            width: 1.04vw;
+            height: 1.04vw;
+
+            background-color: var(--on-primary-color);
+            border-radius: 1.56vw;
+        }
+    }
+}

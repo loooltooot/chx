@@ -1,4 +1,5 @@
 @use 'header';
+@use 'footer';
 
 $side_paddings: 18.23vw;
 $base-font-size: .94vw;
@@ -23,17 +24,29 @@ $base-font-size: .94vw;
 
 ::-moz-selection {
     background: var(--focus-color);
+    color: var(--primary-color);
 }
 
 ::selection {
     background: var(--focus-color);
+    color: var(--primary-color);
 }
 
 body {
     background-color: var(--primary-color);
     background-image: url('../public/img/back.png');
     background-position: right center;
-    background-repeat: repeat-y;
+    background-repeat: repeat-y;   
+}
+
+body, #__next {
+    min-height: 100vh;
+}
+
+#__next {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .flex-row {
@@ -41,8 +54,17 @@ body {
     justify-content: space-between;
 }
 
-#__next > :is(header, footer), section {
-    padding: 0 $side_paddings;
+#__next > footer, section, #__next > div > header {
+    padding-right: $side_paddings;
+    padding-left: $side_paddings;
+}
+
+section {
+    margin-top: 4.69vw;
+}
+
+#__next > div main {
+    margin-bottom: 4.69vw;
 }
 
 h1, h2, h3 {
@@ -68,5 +90,23 @@ h3 {
 
     & ~ div h2 {
         font-size: var(--m-font-size) !important;
+    }
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 2.6vw;
+}
+
+#mojubali {
+    width: 6.09vw;
+    height: 2.81vw;
+    margin-left: .52vw;
+    transition: transform .2s ease-in;
+
+    &:hover {
+        transform: scale(1.05);
     }
 }

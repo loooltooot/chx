@@ -1,0 +1,37 @@
+#__next > footer {
+    background-color: var(--focus-color);
+    align-items: center;
+    padding-top: 1.56vw;
+    padding-bottom: 1.56vw;
+
+    img {
+        margin-top: .9vw;
+        cursor: pointer;
+    }
+
+    div:first-child {
+        align-items: center;
+    }
+
+    span {
+        font-size: 5.21vw;
+        font-family: var(--font-unifraktur-cook);
+        color: var(--primary-color);
+    }
+
+    div:last-child {
+        gap: .92vw;
+
+        img {
+            height: 2.6vw;
+        }
+
+        img:first-child {
+            width: 2.66vw;
+        }
+
+        img:last-child {
+            width: 3.18vw;
+        }
+    }
+}

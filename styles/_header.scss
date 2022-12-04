@@ -1,4 +1,4 @@
-#__next > header {
+#__next > div header {
     // we need to change font-family of all divs except 'hot-news'
     :not(#hot-news-headers *) {
         font-family: var(--font-unifraktur-cook);

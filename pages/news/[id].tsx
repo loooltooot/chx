@@ -1,6 +1,8 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Head from "next/head";
 import Layout from "../../components/layout";
+import NewsItem from "../../components/newsItem";
+import NewsList from "../../components/newsList";
 
 const CATEGORIES = ['Politics', 'Music', 'Art', 'Science', 'It', 'Sport']
 
@@ -78,12 +80,7 @@ export default function NewsPage({news, activeCategoryId}: INewsPage) {
             <Head>
                 <title>{CATEGORIES[activeCategoryId]}</title>
             </Head>
-            <section>
-                {/* FIXME */}
-                {news.map((item) => (
-                    <div>{item.title}</div>
-                ))}
-            </section>
+            <NewsList news={news} />
         </Layout>
     )
 }
