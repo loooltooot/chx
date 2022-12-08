@@ -8,6 +8,12 @@
         background: none;
         cursor: pointer;
 
+        &.voted {
+            path {
+                fill: var(--focus-color);
+            }
+        }
+
         svg {
             width: .64vw;
             height: .64vw;
