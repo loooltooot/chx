@@ -37,6 +37,7 @@ body {
     background-image: url('../public/img/back.png');
     background-position: right center;
     background-repeat: repeat-y;   
+    background-size: 32.03vw;
 }
 
 body, #__next {
@@ -87,6 +88,7 @@ h3 {
 
 .next-error-h1 {
     font-size: var(--big-font-size) !important;
+    border-right-color: var(--focus-color) !important;
 
     & ~ div h2 {
         font-size: var(--m-font-size) !important;

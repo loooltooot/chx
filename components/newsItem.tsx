@@ -10,31 +10,29 @@ interface INewsItem {
 
 export default function NewsItem({newsItem}: INewsItem) {
     return (
-        <CoolLink href=''>
-            <article className={styles.article}>
-                <Image 
-                    src={'/img/' + newsItem.id + '.png'}
-                    width={270}
-                    height={270}
-                    alt='Article image'
-                    loading="lazy"
-                />
-                <div>
-                    <header>
-                        <h3>{newsItem.title}</h3>
-                    </header>
-                    <p>
-                        {newsItem.content}
-                    </p>
-                    <footer className="flex-row">
-                        <CoolLink href=''>read</CoolLink>
-                        <div className="flex-row">
-                            <span className={styles.views}>{newsItem.views}</span>
-                            <Karma karmaCount={newsItem.karma} />
-                        </div>
-                    </footer>
-                </div>
-            </article>
-        </CoolLink>
+        <article className={styles.article}>
+            <Image 
+                src={'/img/' + newsItem.id + '.png'}
+                width={270}
+                height={270}
+                alt='Article image'
+                loading="lazy"
+            />
+            <div>
+                <header>
+                    <h3>{newsItem.title}</h3>
+                </header>
+                <p>
+                    {newsItem.content}
+                </p>
+                <footer className="flex-row">
+                    <CoolLink href={'/news/' + newsItem.id}>read</CoolLink>
+                    <div className="flex-row">
+                        <span className={styles.views}>{newsItem.views}</span>
+                        <Karma karmaCount={newsItem.karma} />
+                    </div>
+                </footer>
+            </div>
+        </article>
     )
 }

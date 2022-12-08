@@ -52,6 +52,12 @@
         * {
             color: var(--primary-color);
         }
+
+        footer {
+            a {
+                border-color: var(--primary-color);
+            }
+        }
     }
 
     &:hover::before {
@@ -65,8 +71,18 @@
     footer {
         margin-top: 2.21vw;
 
+        a {
+            font-family: var(--font-unifraktur-cook);
+            border: .11vw solid var(--on-primary-color);
+            padding: 0 3.23vw 0 .42vw;
+
+            &:hover {
+                background-color: var(--focus-color);
+            }
+        }
+
         & > div {
-            width: 7.6vw;
+            width: 9.6vw;
             justify-content: space-between;
             align-items: center;
 

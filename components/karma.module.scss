@@ -1,6 +1,5 @@
 .karma {
-    display: flex;
-    width: fit-content;
+    min-width: 5vw;
     gap: .26vw;
     align-items: center;
 
@@ -9,12 +8,17 @@
         background: none;
         cursor: pointer;
 
-        img {
-            width: 1.04vw;
-            height: 1.04vw;
+        svg {
+            width: .64vw;
+            height: .64vw;
 
             background-color: var(--on-primary-color);
             border-radius: 1.56vw;
+            padding: .2vw;
+
+            &:hover path {
+                fill: var(--focus-color);
+            }
         }
     }
 }

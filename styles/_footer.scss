@@ -4,7 +4,7 @@
     padding-top: 1.56vw;
     padding-bottom: 1.56vw;
 
-    img {
+    svg {
         margin-top: .9vw;
         cursor: pointer;
     }
@@ -22,15 +22,19 @@
     div:last-child {
         gap: .92vw;
 
-        img {
+        svg {
             height: 2.6vw;
+
+            &:hover path {
+                fill: var(--on-primary-color);
+            }
         }
 
-        img:first-child {
+        svg:first-child {
             width: 2.66vw;
         }
 
-        img:last-child {
+        svg:last-child {
             width: 3.18vw;
         }
     }
