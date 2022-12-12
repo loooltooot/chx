@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { INew } from "../pages/news/[id]";
+import { INew } from "../models/post";
 import CoolLink from "./coolLink";
 import Karma from "./karma";
 import styles from './newsItem.module.scss'
@@ -15,7 +15,7 @@ export default function NewsItem({newsItem}: INewsItem) {
                 src={'/img/' + newsItem.id + '.png'}
                 width={270}
                 height={270}
-                alt='Article image'
+                alt={'Article image ' + newsItem.id}
                 loading="lazy"
             />
             <div>

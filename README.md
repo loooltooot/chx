@@ -7,4 +7,4 @@ News site from Koraha
 - Sass
 - Axios
 - Prisma
-
+- PostgreSQL (Supabase)
