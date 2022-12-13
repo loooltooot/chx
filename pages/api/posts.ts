@@ -1,23 +1,39 @@
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { INew } from '../../models/post'
 
 const prisma = new PrismaClient()
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const category = req.query['category'] as string ?? ''
+    // query arguments
+    let category, id
 
-    const allPosts = await prisma.posts.findMany({
-        where: {
-            category: {
-                equals: category
+    let result
+
+    switch(req.method) {
+        case 'GET':
+            category = req.query['category'] as string ?? ''
+
+            let filter: Prisma.postsFindManyArgs = {
+                orderBy: {
+                    karma: 'desc'
+                }
             }
-       }
-    })
+            if(category) filter.where = {
+                category: {
+                    equals: category
+                }
+            }
 
-    allPosts.forEach((post) => {
-        if(post.content.length > 300) 
-            post.content = post.content.substring(0, 299) + '...'
-    })
+            result = await prisma.posts.findMany(filter)
+            result.forEach((post) => {
+                if(post.content.length > 300) 
+                    post.content = post.content.substring(0, 299) + '...'
+            })
 
-    res.status(200).json(allPosts)
+            res.status(200).json(result)
+            break
+        default:
+            res.status(405).json('Wrong request method')
+    }
 }

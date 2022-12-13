@@ -1,11 +1,11 @@
-import { INew } from "../pages/news/[id]"
+import { INew } from "../models/post"
 import NewsItem from "./newsItem"
 
 interface INewsList {
     news: INew[]
 }
 
-export default function NewsList({news}: INewsList) {
+export default function NewsList({ news }: INewsList) {
     return (
         <section className="news-list">
             {news.map((newsItem) => (

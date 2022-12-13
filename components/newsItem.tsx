@@ -8,14 +8,14 @@ interface INewsItem {
     newsItem: INew
 }
 
-export default function NewsItem({newsItem}: INewsItem) {
+export default function NewsItem({ newsItem }: INewsItem) {
     return (
         <article className={styles.article}>
-            <Image 
-                src={'/img/' + newsItem.id + '.png'}
+            <Image
+                src={'/img/' + newsItem.code + '.png'}
                 width={270}
                 height={270}
-                alt={'Article image ' + newsItem.id}
+                alt={'Article image ' + newsItem.code}
                 loading="lazy"
             />
             <div>
@@ -26,7 +26,7 @@ export default function NewsItem({newsItem}: INewsItem) {
                     {newsItem.content}
                 </p>
                 <footer className="flex-row">
-                    <CoolLink href={'/news/' + newsItem.id}>read</CoolLink>
+                    <CoolLink href={'/news/' + newsItem.code}>read</CoolLink>
                     <div className="flex-row">
                         <span className={styles.views}>{newsItem.views}</span>
                         <Karma karmaCount={newsItem.karma} />

@@ -8,10 +8,12 @@ datasource db {
 }
 
 model posts {
-  id       String @id @unique @db.VarChar(255)
-  title    String @db.VarChar(255)
-  content  String
-  views    Int    @default(0)
-  karma    Int    @default(0)
-  category String @db.VarChar(255)
+  id        Int      @id @unique @default(autoincrement())
+  code      String   @unique @db.VarChar(255)
+  title     String   @db.VarChar(255)
+  content   String
+  views     Int      @default(0)
+  karma     Int      @default(0)
+  category  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
 }

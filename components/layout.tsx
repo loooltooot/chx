@@ -1,6 +1,7 @@
-import Head from "next/head";
+import { useEffect, useState } from "react";
+import { axiosInst } from "../models/axiosInst";
 import Footer from "./footer";
-import Header from "./header";
+import Header, { ITopHeader } from "./header";
 
 interface ILayout {
     children: React.ReactNode
@@ -8,10 +9,20 @@ interface ILayout {
 }
 
 export default function Layout({children, activeCategoryId}: ILayout) {
+    const [topHeaders, setTopHeaders] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axiosInst.get('/api/topHeaders')
+            setTopHeaders(response.data)
+        }
+        fetchData()
+    }, [])
+
     return (
         <>
             <div>
-                <Header activeCategoryId={activeCategoryId} />
+                <Header activeCategoryId={activeCategoryId} topHeaders={topHeaders} />
                 <main>
                     {children}
                 </main>
