@@ -8,3 +8,5 @@ News site from Koraha
 - Axios
 - Prisma
 - PostgreSQL (Supabase)
+
+![](promo.png)

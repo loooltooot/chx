@@ -8,23 +8,23 @@ interface IHeader {
 }
 
 export interface ITopHeader {
-    id: string
+    code: string
     title: string
 }
 
-export default function Header({activeCategoryId, topHeaders}: IHeader) {
+export default function Header({ activeCategoryId, topHeaders }: IHeader) {
     const categories = ['Politics', 'Music', 'Art', 'Science', 'IT', 'Sport']
 
     return (
         <header>
             <div className="flex-row" id="header-top">
-                <h1>Chxxsxnian Gxrold</h1> 
+                <h1>Chxxsxnian Gxrold</h1>
 
                 {/* news categories */}
                 <nav>
                     <FlexList>
                         {categories.map((category, index) => (
-                            activeCategoryId === index 
+                            activeCategoryId === index
                                 ? <li key={index}>
                                     <CoolLink className="activeCategory" href={'/news/' + category.toLowerCase()}>
                                         {category}
@@ -49,7 +49,7 @@ export default function Header({activeCategoryId, topHeaders}: IHeader) {
                 <FlexList id="hot-news-headers">
                     {topHeaders?.map((header, index) => (
                         <li key={index}>
-                            <CoolLink href="">
+                            <CoolLink href={"/news/" + header.code}>
                                 {header.title}
                             </CoolLink>
                         </li>

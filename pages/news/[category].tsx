@@ -12,9 +12,9 @@ export async function getStaticPaths() {
     const paths: Params[] = []
 
     CATEGORIES.forEach((category) => {
-        paths.push({params: {id: category.toLowerCase()}})
+        paths.push({ params: { category: category.toLowerCase() } })
     })
-    
+
     return {
         paths,
         fallback: false
@@ -25,12 +25,12 @@ interface INewsProps {
     props: INewsPage
 }
 
-export async function getStaticProps({params}: Params): Promise<INewsProps> {
-    const response = await axiosInst.get('/api/posts?category=' + params.id)
+export async function getStaticProps({ params }: Params): Promise<INewsProps> {
+    const response = await axiosInst.get('/api/posts?category=' + params.category)
     const news: INew[] = response.data
 
     // get index of category 
-    const id = CATEGORIES.indexOf((params.id)[0].toUpperCase() + params.id.slice(1)) // capitalizing first letter and adding rest part
+    const id = CATEGORIES.indexOf((params.category)[0].toUpperCase() + params.category.slice(1)) // capitalizing first letter and adding rest part
 
     return {
         props: {
@@ -45,7 +45,7 @@ interface INewsPage {
     activeCategoryId: number
 }
 
-export default function NewsPage({news, activeCategoryId}: INewsPage) {
+export default function NewsPage({ news, activeCategoryId }: INewsPage) {
     return (
         <Layout activeCategoryId={activeCategoryId}>
             <Head>
