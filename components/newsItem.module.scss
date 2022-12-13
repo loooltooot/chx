@@ -4,6 +4,7 @@
     display: flex;
     position: relative;
     padding-right: 1.82vw;
+    transition: var(--transition);
 
     & > img {
         width: 14.06vw;
@@ -46,7 +47,7 @@
         }
 
         p {
-            margin-top: 1.08vw;
+            margin-top: 1.04vw;
         }
 
         * {

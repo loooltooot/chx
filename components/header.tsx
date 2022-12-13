@@ -1,24 +1,30 @@
 import FlexList from "./flexList"
-import Link from 'next/link'
 import CoolLink from "./coolLink"
+import { axiosInst } from "../models/axiosInst"
 
 interface IHeader {
     activeCategoryId: number
+    topHeaders: ITopHeader[]
 }
 
-export default function Header({activeCategoryId}: IHeader) {
+export interface ITopHeader {
+    code: string
+    title: string
+}
+
+export default function Header({ activeCategoryId, topHeaders }: IHeader) {
     const categories = ['Politics', 'Music', 'Art', 'Science', 'IT', 'Sport']
 
     return (
         <header>
             <div className="flex-row" id="header-top">
-                <h1>Chxxsxnian Gxrold</h1> 
+                <h1>Chxxsxnian Gxrold</h1>
 
                 {/* news categories */}
                 <nav>
                     <FlexList>
                         {categories.map((category, index) => (
-                            activeCategoryId === index 
+                            activeCategoryId === index
                                 ? <li key={index}>
                                     <CoolLink className="activeCategory" href={'/news/' + category.toLowerCase()}>
                                         {category}
@@ -41,21 +47,13 @@ export default function Header({activeCategoryId}: IHeader) {
 
                 {/* todo: gets hot-news headers from server */}
                 <FlexList id="hot-news-headers">
-                    <li>
-                        <CoolLink href="" >
-                            All toilets in King’s Landing have disappired
-                        </CoolLink>
-                    </li>
-                    <li>
-                        <CoolLink href="" >
-                            IT specialists from Koraha are not a joke
-                        </CoolLink>
-                    </li>
-                    <li>
-                        <CoolLink href="">
-                            “Lapta” – new hype sport from Köttisgrad
-                        </CoolLink>
-                    </li>
+                    {topHeaders?.map((header, index) => (
+                        <li key={index}>
+                            <CoolLink href={"/news/" + header.code}>
+                                {header.title}
+                            </CoolLink>
+                        </li>
+                    ))}
                 </FlexList>
             </div>
         </header>
