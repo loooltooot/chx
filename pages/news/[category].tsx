@@ -1,12 +1,10 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Head from "next/head";
+import { CATEGORIES, getIndexOfCategory } from "../../components/header";
 import Layout from "../../components/layout";
 import NewsList from "../../components/newsList";
 import { axiosInst } from "../../models/axiosInst";
 import { INew } from "../../models/post";
-
-const CATEGORIES = ['Politics', 'Music', 'Art', 'Science', 'It', 'Sport']
-
 
 export async function getStaticPaths() {
     const paths: Params[] = []
@@ -30,7 +28,7 @@ export async function getStaticProps({ params }: Params): Promise<INewsProps> {
     const news: INew[] = response.data
 
     // get index of category 
-    const id = CATEGORIES.indexOf((params.category)[0].toUpperCase() + params.category.slice(1)) // capitalizing first letter and adding rest part
+    const id = getIndexOfCategory(params.category) // capitalizing first letter and adding rest part
 
     return {
         props: {

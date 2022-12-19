@@ -26,7 +26,7 @@ export default function NewsItem({ newsItem }: INewsItem) {
                     {newsItem.content}
                 </p>
                 <footer className="flex-row">
-                    <CoolLink href={'/news/' + newsItem.code}>read</CoolLink>
+                    <CoolLink href={'/news/post/' + newsItem.code}>read</CoolLink>
                     <div className="flex-row">
                         <span className={styles.views}>{newsItem.views}</span>
                         <Karma karmaCount={newsItem.karma} />

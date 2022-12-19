@@ -1,9 +1,10 @@
 export interface INew {
-    id: string
+    id: number
     code: string
     title: string
     content: string
     views: number
     karma: number
-    createdAt: Date
+    createdAt: number
+    category: string
 }

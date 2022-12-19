@@ -12,9 +12,12 @@ export interface ITopHeader {
     title: string
 }
 
-export default function Header({ activeCategoryId, topHeaders }: IHeader) {
-    const categories = ['Politics', 'Music', 'Art', 'Science', 'IT', 'Sport']
+export const CATEGORIES = ['Politics', 'Music', 'Art', 'Science', 'It', 'Sport']
+export function getIndexOfCategory(category: string) {
+    return CATEGORIES.indexOf(category[0].toUpperCase() + category.slice(1))
+}
 
+export default function Header({ activeCategoryId, topHeaders }: IHeader) {
     return (
         <header>
             <div className="flex-row" id="header-top">
@@ -23,7 +26,7 @@ export default function Header({ activeCategoryId, topHeaders }: IHeader) {
                 {/* news categories */}
                 <nav>
                     <FlexList>
-                        {categories.map((category, index) => (
+                        {CATEGORIES.map((category, index) => (
                             activeCategoryId === index
                                 ? <li key={index}>
                                     <CoolLink className="activeCategory" href={'/news/' + category.toLowerCase()}>
@@ -49,7 +52,7 @@ export default function Header({ activeCategoryId, topHeaders }: IHeader) {
                 <FlexList id="hot-news-headers">
                     {topHeaders?.map((header, index) => (
                         <li key={index}>
-                            <CoolLink href={"/news/" + header.code}>
+                            <CoolLink href={"/news/post/" + header.code}>
                                 {header.title}
                             </CoolLink>
                         </li>
